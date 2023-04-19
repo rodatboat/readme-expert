@@ -16,5 +16,8 @@
     "sirv": "^2.0.2",
     "vite": "^4.0.3",
     "vite-plugin-ssr": "^0.4.114"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.1"
   }
 }

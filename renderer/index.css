@@ -1,4 +1,7 @@
 /* This CSS is common to all pages */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
@@ -9,11 +12,4 @@ body {
 }
 a {
   text-decoration: none;
-}
-
-.navitem {
-  padding: 3px 10px;
-}
-.navitem.is-active {
-  background-color: #eee;
 }

@@ -1,17 +1,22 @@
 import React from 'react'
-import { Counter } from './Counter'
+import "./index.css";
 
 export { Page }
+export const documentProps = {
+  // This title and description will override the defaults
+  // title: 'About SpaceX',
+  // description: 'Our mission is to explore the galaxy.'
+}
 
 function Page() {
   return (
     <>
-      <h1>Welcome</h1>
+      <h1>Welcome to the Index page!</h1>
       This page is:
       <ul>
         <li>Rendered to HTML.</li>
         <li>
-          Interactive. <Counter />
+          Interactive.
         </li>
       </ul>
     </>
