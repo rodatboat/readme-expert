@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import ExpertEditor from "./ExpertEditor";
+import ExpertPreview from "./ExpertPreview";
 
 export { Page };
 
@@ -37,9 +37,8 @@ function Page() {
   useEffect(() => {}, []);
   return (
     <>
-    <h1 className="font-light">test</h1>
-
-      <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />
+    <ExpertEditor markdown={markdown} />
+      <ExpertPreview markdown={markdown} />
     </>
   );
 }
