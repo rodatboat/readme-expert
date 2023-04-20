@@ -1,21 +1,35 @@
 export { render }
+// export const clientRouting = true
+// export const hydrationCanBeAborted = true
 
 import React from 'react'
-import { hydrateRoot } from 'react-dom/client'
+import { hydrateRoot, createRoot } from 'react-dom/client'
 import { PageLayout } from './PageLayout'
 import "./index.css";
 
 
-// This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
+let root
 async function render(pageContext) {
   const { Page, pageProps } = pageContext
-  if (!Page) throw new Error('Client-side render() hook expects pageContext.Page to be defined')
-  hydrateRoot(
-    document.getElementById('page-view'),
+
+  const page = (
     <PageLayout pageContext={pageContext}>
       <Page {...pageProps} />
     </PageLayout>
   )
+
+  const container = document.getElementById('page-view')
+  // SPA
+  if (container.innerHTML === '' || !pageContext.isHydration) {
+    // if (!root) {
+    //   root = createRoot(container)
+    // }
+    // root.render(page)
+    root = hydrateRoot(container, page)
+    // SSR
+  } else {
+    root = hydrateRoot(container, page)
+  }
 }
 
 /* To enable Client-side Routing:

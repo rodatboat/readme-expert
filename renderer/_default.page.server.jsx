@@ -1,6 +1,6 @@
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname']
+export const passToClient = ['pageProps']
 
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'
@@ -10,13 +10,19 @@ import "./index.css";
 
 async function render(pageContext) {
   const { Page, pageProps } = pageContext
-  // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
-  if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
-  const pageHtml = ReactDOMServer.renderToString(
-    <PageLayout pageContext={pageContext}>
-      <Page {...pageProps} />
-    </PageLayout>
-  )
+
+  let pageHtml;
+  if (pageContext.Page) {
+    // For SSR pages
+    pageHtml = ReactDOMServer.renderToString(
+      <PageLayout pageContext={pageContext}>
+        <Page {...pageProps} />
+      </PageLayout>
+    )
+  } else {
+    // For SPA pages
+    pageHtml = ''
+  }
 
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext.exports
