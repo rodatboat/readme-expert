@@ -21,11 +21,11 @@ async function render(pageContext) {
   const container = document.getElementById('page-view')
   // SPA
   if (container.innerHTML === '' || !pageContext.isHydration) {
-    // if (!root) {
-    //   root = createRoot(container)
-    // }
-    // root.render(page)
-    root = hydrateRoot(container, page)
+    if (!root) {
+      root = createRoot(container)
+    }
+    root.render(page)
+    
     // SSR
   } else {
     root = hydrateRoot(container, page)

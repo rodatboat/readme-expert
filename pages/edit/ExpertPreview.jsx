@@ -1,11 +1,18 @@
 import React from 'react';
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
-export default function ExpertPreview({markdown}) {
+export default function ExpertPreview({ markdown }) {
   return (
-    <>
-    <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />
-    </>
+    <div
+      className="h-full">
+      <MarkdownPreview
+        style={{
+          height: "100%",
+          padding: 32
+        }}
+
+        source={markdown} />
+    </div>
   )
 }
+
