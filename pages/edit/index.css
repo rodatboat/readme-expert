@@ -1,0 +1,3 @@
+.editor-bg, .wmde-markdown {
+    @apply !bg-secondary;
+}

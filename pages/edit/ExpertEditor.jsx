@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import './index.css';
 
 export default function ExpertEditor({ markdown, onChange, language }) {
   const textRef = React.useRef();
@@ -9,7 +10,7 @@ export default function ExpertEditor({ markdown, onChange, language }) {
   return (
     <div
       // data-color-mode="light"
-      className="h-full"
+      className="h-full editor-bg"
     >
       <CodeEditor
         value={markdown}
@@ -17,13 +18,13 @@ export default function ExpertEditor({ markdown, onChange, language }) {
         language={language}
         placeholder={`Please enter ${language} code.`}
         onChange={onChange}
-        padding={32}
+        padding={24}
         style={{
           fontFamily:
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
           fontSize: 14,
 
-          minHeight: "100%"
+          // height: "100%"
         }}
       />
     </div>

@@ -4,11 +4,13 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 export default function ExpertPreview({ markdown }) {
   return (
     <div
-      className="h-full">
+      className="h-full editor-bg"
+      >
       <MarkdownPreview
+      className="bg-secondary"
         style={{
-          minHeight: "100%",
-          padding: 32
+          // height: "100%",
+          padding: 24,
         }}
 
         source={markdown} />

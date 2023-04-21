@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function PageLayout({ children, pageContext }) {
+export default function PageWrapper({ children, pageContext }) {
     return (
-        <div className="bg-white text-dark h-full w-full h-screen">
-            <div className="max-w-full mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 h-full">
+        <div className="bg-white text-dark w-full max-h-screen h-screen">
+            <div className="mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-full">
                 {children}
             </div>
         </div>

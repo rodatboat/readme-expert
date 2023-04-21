@@ -13,8 +13,8 @@ module.exports = {
       },
       secondary: {
         light: "#e4dee4",
-        DEFAULT: "#443742",
-        dark: "#2D242C",
+        DEFAULT: "#161b22",
+        dark: "#161b22",
       },
       magnolia: {
         light: "#e4dee4",

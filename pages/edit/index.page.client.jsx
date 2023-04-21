@@ -7,8 +7,8 @@ export { Page };
 
 
 function Page() {
-  const [markdown, setMarkdown] = useState(`
-# A demo of   "react-markdown"
+  const [preview, setPreview] = useState(false);
+  const [markdown, setMarkdown] = useState(`# A demo of   "react-markdown"
 ## test
 
 "react-markdown" is a markdown component for React.
@@ -38,24 +38,27 @@ Here is an example of a plugin to highlight code:
     e.preventDefault();
     setMarkdown(e.target.value);
   }
+  const togglePreview = () => {
+    setPreview(!preview);
+  }
 
   useEffect(() => { }, []);
   return (
     <>
-      <PageWrapper>
-        <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 h-full w-full">
-          <div className="md:flex-1 rounded-xl overflow-y-scroll h-full scrollbar-hide">
-            <div className="md:h-full">
+      <div className="flex flex-col max-h-screen h-screen">
+        <div className="flex-auto h-1/6"><button onClick={togglePreview}>Preview</button></div>
+        <div className="flex-auto mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-5/6">
+          <div className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 h-full">
+            <div className={`md:flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block`}>
               <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
             </div>
-          </div>
 
-          <div className="md:flex-1 rounded-xl overflow-y-scroll h-full scrollbar-hide">
-            <div className="md:h-full">
+            <div className={`md:flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "block" : "hidden"} md:block`}>
               <ExpertPreview markdown={markdown} />
-            </div></div>
+            </div>
+          </div>
         </div>
-      </PageWrapper>
+      </div>
     </>
   );
 }
