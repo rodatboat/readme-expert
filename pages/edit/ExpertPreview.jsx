@@ -7,7 +7,7 @@ export default function ExpertPreview({ markdown }) {
       className="h-full">
       <MarkdownPreview
         style={{
-          height: "100%",
+          minHeight: "100%",
           padding: 32
         }}
 

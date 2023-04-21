@@ -43,14 +43,17 @@ Here is an example of a plugin to highlight code:
   return (
     <>
       <PageWrapper>
-        <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0  h-full w-full">
-          <div className="flex-1 rounded-xl overflow-hidden">
-            <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
+        <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 h-full w-full">
+          <div className="md:flex-1 rounded-xl overflow-y-scroll h-full scrollbar-hide">
+            <div className="md:h-full">
+              <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
+            </div>
           </div>
 
-          <div className="flex-1 rounded-xl overflow-hidden">
-            <ExpertPreview markdown={markdown} />
-          </div>
+          <div className="md:flex-1 rounded-xl overflow-y-scroll h-full scrollbar-hide">
+            <div className="md:h-full">
+              <ExpertPreview markdown={markdown} />
+            </div></div>
         </div>
       </PageWrapper>
     </>
