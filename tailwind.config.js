@@ -7,18 +7,18 @@ module.exports = {
   theme: {
     colors: {
       primary: {
-        light: "#F6F6EF",
-        DEFAULT: "#093824",
-        dark: "#062316",
+        light: "#A697D8",
+        DEFAULT: "#8D7ACD",
+        dark: "#725AC1",
       },
       secondary: {
-        light: "#e4dee4",
+        light: "#50647C",
         DEFAULT: "#161b22",
-        dark: "#161b22",
+        dark: "#101419",
       },
       magnolia: {
         light: "#e4dee4",
-        DEFAULT: "#443742",
+        DEFAULT: "#e4dee4",
         dark: "#2D242C",
       },
     },

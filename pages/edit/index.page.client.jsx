@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ExpertEditor from "./ExpertEditor";
 import ExpertPreview from "./ExpertPreview";
-import PageWrapper from "../PageWrapper";
+import NavBar from "../NavBar";
 
 export { Page };
 
@@ -41,19 +41,21 @@ Here is an example of a plugin to highlight code:
   const togglePreview = () => {
     setPreview(!preview);
   }
-
+// mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6
   useEffect(() => { }, []);
   return (
     <>
-      <div className="flex flex-col max-h-screen h-screen">
-        <div className="flex-auto h-1/6"><button onClick={togglePreview}>Preview</button></div>
-        <div className="flex-auto mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-5/6">
-          <div className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 h-full">
-            <div className={`md:flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block`}>
+      <div className="flex flex-col max-h-screen h-screen overflow-auto">
+        <div className="flex-none min-h-12 h-12">
+          <NavBar togglePreview={togglePreview} preview={preview} />
+        </div>
+        <div className="flex-auto mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%]">
+          <div className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 md:h-full h-full">
+            <div className={`flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block border-2 border-primary`}>
               <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
             </div>
 
-            <div className={`md:flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "block" : "hidden"} md:block`}>
+            <div className={`flex-1 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "block" : "hidden"} md:block border-2 border-primary`}>
               <ExpertPreview markdown={markdown} />
             </div>
           </div>
