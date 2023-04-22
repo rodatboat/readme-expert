@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ExpertEditor from "./ExpertEditor";
 import ExpertPreview from "./ExpertPreview";
-import NavBar from "../NavBar";
+import NavWrapper from "../NavWrapper";
+
+export const documentProps = {
+  // This title and description will override the defaults
+  title: 'readme.expert | Editor',
+  desc: 'Editor'
+}
 
 export { Page };
-
 
 function Page() {
   const [preview, setPreview] = useState(false);
@@ -41,15 +46,20 @@ Here is an example of a plugin to highlight code:
   const togglePreview = () => {
     setPreview(!preview);
   }
-  // mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6
-  // h-[50%]
+
+  const downloadFile = () => {
+    const element = document.createElement("a");
+    const file = new Blob([markdown], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = `README.md`;
+    document.body.appendChild(element);
+    element.click();
+  }
+  
   useEffect(() => { }, []);
   return (
     <>
-      <div className="flex flex-col max-h-screen h-screen overflow-auto">
-        <div className="flex-none min-h-16 h-16 md:min-h-12 md:h-12">
-          <NavBar togglePreview={togglePreview} preview={preview} />
-        </div>
+    <NavWrapper togglePreview={togglePreview} preview={preview} downloadFile={downloadFile} >
         <div className="flex-1 mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%]">
           <div className="flex flex-col md:flex-row md:gap-x-4 md:gap-y-0 md:h-full h-full">
             <div className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block border-2 border-primary bg-secondary`}>
@@ -73,7 +83,7 @@ Here is an example of a plugin to highlight code:
             </div>
           </div>
         </div>
-      </div>
+      </NavWrapper>
     </>
   );
 }

@@ -1,6 +1,6 @@
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps']
+export const passToClient = ['pageProps', 'documentProps']
 
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'
@@ -26,16 +26,23 @@ async function render(pageContext) {
 
   // See https://vite-plugin-ssr.com/head
   const { documentProps } = pageContext.exports
-  const title = (documentProps && documentProps.title) || 'Vite SSR app'
-  const desc = (documentProps && documentProps.description) || 'App using Vite + vite-plugin-ssr'
+
+  const title = (documentProps && documentProps.title) || 'readme.expert'
+  const desc = (documentProps && documentProps.description) || 'Create professional-looking READMEs quickly and easily, with customizable templates and intuitive tools.'
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
         <link rel="icon" href="" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="${title}" />
+        <meta property="og:url" content="https://readme.expert" />
+        <meta property="og:site_name" content="${title}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
+        <meta rel="icon" href="/favicon.ico" />
         <title>${title}</title>
       </head>
       <body>

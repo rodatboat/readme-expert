@@ -12,12 +12,16 @@ let root
 async function render(pageContext) {
   const { Page, pageProps } = pageContext
 
+  const {documentProps} = pageContext.exports
+  document.title = (documentProps && documentProps.title) || 'readme.expert'
+  document.desc = (documentProps && documentProps.description) || 'Create professional-looking READMEs quickly and easily, with customizable templates and intuitive tools.'
+
+
   const page = (
     <PageLayout pageContext={pageContext}>
       <Page {...pageProps} />
     </PageLayout>
   )
-
   const container = document.getElementById('page-view')
   // SPA
   if (container.innerHTML === '' || !pageContext.isHydration) {
