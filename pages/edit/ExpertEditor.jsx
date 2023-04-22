@@ -8,10 +8,6 @@ export default function ExpertEditor({ markdown, onChange, language }) {
   useEffect(() => {
   }, []);
   return (
-    <div
-      // data-color-mode="light"
-      className="h-full editor-bg"
-    >
       <CodeEditor
         value={markdown}
         ref={textRef}
@@ -27,6 +23,5 @@ export default function ExpertEditor({ markdown, onChange, language }) {
           // height: "100%"
         }}
       />
-    </div>
   );
 }
