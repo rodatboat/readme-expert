@@ -6,9 +6,9 @@ import NavWrapper from "../NavWrapper";
 export { Page };
 
 export const documentProps = {
-  title: "readme.expert | Editor",
-  desc: "Editor",
-};
+  title: 'readme.expert | Editor',
+  desc: 'Editor'
+}
 
 function Page() {
   const [preview, setPreview] = useState(false);
@@ -102,35 +102,27 @@ details
   const changeMarkdown = (e) => {
     e.preventDefault();
     setMarkdown(e.target.value);
-  };
+  }
   const togglePreview = () => {
     setPreview(!preview);
-  };
+  }
 
   const downloadFile = () => {
     const element = document.createElement("a");
-    const file = new Blob([markdown], { type: "text/plain" });
+    const file = new Blob([markdown], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
     element.download = `README.md`;
     document.body.appendChild(element);
     element.click();
-  };
+  }
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
     <>
-      <NavWrapper
-        togglePreview={togglePreview}
-        preview={preview}
-        downloadFile={downloadFile}
-      >
-        <div className="flex-auto mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%] max-w-screen">
+      <NavWrapper togglePreview={togglePreview} preview={preview} downloadFile={downloadFile} >
+        <div className="flex-1 mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%] max-w-screen">
           <div className="flex flex-col md:flex-row md:gap-x-4 md:gap-y-0 md:h-full h-full">
-            <div
-              className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${
-                preview ? "hidden" : "block"
-              } md:block border-2 border-primary bg-secondary`}
-            >
+            <div className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block border-2 border-primary bg-secondary`}>
               <p className="z-50 sticky top-0 flex-1 rounded-t-xl text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">
                 Editor
               </p>
@@ -138,19 +130,10 @@ details
                 // data-color-mode="light"
                 className="h-min editor-bg"
               >
-                <ExpertEditor
-                  markdown={markdown}
-                  onChange={changeMarkdown}
-                  language={"markdown"}
-                />
-              </div>
-            </div>
+                <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
+              </div></div>
 
-            <div
-              className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${
-                preview ? "block" : "hidden"
-              } md:block border-2 border-primary bg-secondary`}
-            >
+            <div className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "block" : "hidden"} md:block border-2 border-primary bg-secondary`}>
               <p className="z-50 sticky top-0 flex-1 rounded-t-xl text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">
                 Preview
               </p>
