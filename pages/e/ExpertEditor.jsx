@@ -20,7 +20,8 @@ export default function ExpertEditor({ markdown, onChange, language }) {
             "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
           fontSize: 14,
 
-          // height: "100%"
+          maxHeight: "100%",
+          maxWidth: "100%"
         }}
       />
   );

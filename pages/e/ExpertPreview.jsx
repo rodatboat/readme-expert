@@ -9,8 +9,10 @@ export default function ExpertPreview({ markdown }) {
       <MarkdownPreview
       className="bg-secondary"
         style={{
-          // height: "100%",
           padding: 24,
+
+          maxHeight: "100%",
+          maxWidth: "100%"
         }}
 
         source={markdown} />
