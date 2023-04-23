@@ -5,5 +5,5 @@
 
 ## Features
 ✅ GFM Support
-❌ README Editor
+✅ README Editor
 ❌ Code Snippets

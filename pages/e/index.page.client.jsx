@@ -3,40 +3,100 @@ import ExpertEditor from "./ExpertEditor";
 import ExpertPreview from "./ExpertPreview";
 import NavWrapper from "../NavWrapper";
 
+export { Page };
+
 export const documentProps = {
-  // This title and description will override the defaults
   title: 'readme.expert | Editor',
   desc: 'Editor'
 }
 
-export { Page };
-
 function Page() {
   const [preview, setPreview] = useState(false);
-  const [markdown, setMarkdown] = useState(`# A demo of   "react-markdown"
-## test
+  const [markdown, setMarkdown] = useState(`# Project Title
 
-"react-markdown" is a markdown component for React.
+One Paragraph of the project description
 
-👉 Changes are re-rendered as you type.
+Initially appeared on
+[repo](https://github.com/rodatboat/readme-expert). But the page cannot open anymore so that is why I have moved it here.
 
-👈 Try writing some markdown on the left.
-## Overview
+## Getting Started
 
-* Follows [CommonMark](https://commonmark.org)
-* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-* Has a lot of plugins
+These instructions will give you a copy of the project up and running on
+your local machine for development and testing purposes. See deployment
+for notes on deploying the project on a live system.
 
-## Table of contents
+### Prerequisites
 
-Here is an example of a plugin in action
-(["remark-toc"](https://github.com/remarkjs/remark-toc)).
-This section is replaced by an actual table of contents.
+Requirements for the software and other tools to build, test and push 
+- [Example 1](https://www.example.com)
+- [Example 2](https://www.example.com)
 
-## Syntax highlighting
+### Installing
 
-Here is an example of a plugin to highlight code:
-["rehype-highlight"](https://github.com/rehypejs/rehype-highlight).
+A step by step series of examples that tell you how to get a development
+environment running
+
+Say what the step will be
+
+    Give the example
+
+And repeat
+
+    until finished
+
+End with an example of getting some data out of the system or using it
+for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Sample Tests
+
+Explain what these tests test and why
+
+    Give an example
+
+### Style test
+
+Checks if the best practices and the right coding style has been used.
+
+    Give an example
+
+## Deployment
+
+Add additional notes to deploy this on a live system
+
+## Built With
+
+  - React
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
+of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+  - **Ro** - *Provided README Template* -
+    [rodatboat](https://github.com/rodatboat)
+
+See also the list of
+[contributors](https://github.com/rodatboat/readme-expert/contributors)
+who participated in this project.
+
+## License
+
+This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
+Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
+details
+
+## Acknowledgments
+
+  - Hat tip to anyone whose code is used
+  - Inspiration
+  - etc
+
 `);
 
   const changeMarkdown = (e) => {
