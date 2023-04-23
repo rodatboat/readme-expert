@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import imgUrl from './logo-no-background.svg'
 
 export default function NavBar({ preview = null, togglePreview = () => { }, downloadFile = () => { } }) {
+
     const OpenIcon = () => {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" onClick={togglePreview} className="icon icon-tabler icon-tabler-focus transition-all hover:bg-primary-light rounded-full p-1 border border-2 border-primary-light" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -58,8 +59,9 @@ export default function NavBar({ preview = null, togglePreview = () => { }, down
             </svg>
         );
     }
+    const [isClient, setIsClient] = useState(false);
     useEffect(() => {
-        console.log(window.location)
+        setIsClient(true);
     }, [])
     return (
         <nav className="h-full w-full">
@@ -68,11 +70,11 @@ export default function NavBar({ preview = null, togglePreview = () => { }, down
                     <a href="/"><img src={imgUrl} className="max-h-24" width="auto" height="96" alt="readme.expert logo" /></a>
                 </div>
                 <div className="flex flex-row gap-2">
-                    <div className={`${window.location.href.endsWith("/e") ? "block" : "hidden"} md:hidden`}>
-                        {preview ? <OpenIcon /> : <CloseIcon />}
+                    <div className="block md:hidden">
+                        {isClient ? window.location.href.endsWith("/e") ? preview ? <OpenIcon /> : <CloseIcon /> : null : null}
                     </div>
                     <div className="">
-                        {window ? window.location.href.endsWith("/e") ? <a href="/s"><SnippetIcon /></a> : <a href="/e"><EditorIcon /></a> : null}
+                        {isClient ? window.location.href.endsWith("/e") ? <a href="/s"><SnippetIcon /></a> : <a href="/e"><EditorIcon /></a> : null}
                     </div>
                     <div className="">
                         <DLIcon />

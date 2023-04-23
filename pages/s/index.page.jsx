@@ -12,7 +12,7 @@ function Page() {
     return (
         <>
             <NavWrapper>
-                <div>test</div>
+                <div>Snippet create and explore page.</div>
             </NavWrapper>
         </>
     )
