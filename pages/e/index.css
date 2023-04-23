@@ -2,6 +2,9 @@
     @apply !bg-secondary;
 }
 
+.editor-bg {
+}
+
 .wmde-markdown .code-highlight {
     @apply !bg-secondary-dark;
 }
