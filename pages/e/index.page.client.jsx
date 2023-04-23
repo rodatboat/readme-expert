@@ -109,21 +109,23 @@ details
 
   const downloadFile = () => {
     const element = document.createElement("a");
-    const file = new Blob([markdown], {type: 'text/plain'});
+    const file = new Blob([markdown], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
     element.download = `README.md`;
     document.body.appendChild(element);
     element.click();
   }
-  
+
   useEffect(() => { }, []);
   return (
     <>
-    <NavWrapper togglePreview={togglePreview} preview={preview} downloadFile={downloadFile} >
+      <NavWrapper togglePreview={togglePreview} preview={preview} downloadFile={downloadFile} >
         <div className="flex-1 mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%]">
           <div className="flex flex-col md:flex-row md:gap-x-4 md:gap-y-0 md:h-full h-full">
             <div className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "hidden" : "block"} md:block border-2 border-primary bg-secondary`}>
-              <p className="z-50 sticky top-0 w-full flex-1 text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">Editor</p>
+              <p className="z-50 sticky top-0 flex-1 rounded-t-xl text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">
+                Editor
+              </p>
               <div
                 // data-color-mode="light"
                 className="h-min editor-bg"
@@ -132,14 +134,16 @@ details
               </div></div>
 
             <div className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${preview ? "block" : "hidden"} md:block border-2 border-primary bg-secondary`}>
-              <p className="z-50 sticky top-0 w-full flex-1 text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">Preview</p>
+              <p className="z-50 sticky top-0 flex-1 rounded-t-xl text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">
+                Preview
+              </p>
 
-                <div
-                  // data-color-mode="light"
-                  className="h-min editor-bg"
-                >
-                  <ExpertPreview markdown={markdown} />
-                </div>
+              <div
+                // data-color-mode="light"
+                className="h-min editor-bg"
+              >
+                <ExpertPreview markdown={markdown} />
+              </div>
             </div>
           </div>
         </div>
