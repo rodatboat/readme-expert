@@ -120,7 +120,6 @@ details
   return (
     <>
       <NavWrapper togglePreview={togglePreview} preview={preview} downloadFile={downloadFile} >
-        <div className="flex flex-initial mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 overflow-hidden">
           <div className="flex flex-col items-stretch flex-nowrap flex-initial grow-0 md:flex-row md:gap-x-4 md:gap-y-0 overflow-hidden">
             <div className={`relative max-w-full flex-initial basis-full md:basis-1/2 overflow-y-scroll rounded-xl scrollbar-hide ${preview ? "hidden" : "block"} md:block`}>
               <p className="z-50 sticky top-0 flex-1 rounded-t-xl text-sm py-1 font-bold text-center text-[#fff] bg-secondary border-2 border-l-0 border-r-0 border-t-0 border-b-1 border-primary uppercase">
@@ -130,7 +129,7 @@ details
                 // data-color-mode="light"
                 className="editor-bg"
               >
-                <ExpertEditor markdown={markdown} onChange={changeMarkdown} language={"markdown"} />
+                <ExpertEditor code={markdown} onChange={changeMarkdown} language={"markdown"} />
               </div></div>
 
             <div className={`relative max-w-full flex-initial basis-full md:basis-1/2 overflow-y-scroll rounded-xl scrollbar-hide ${preview ? "block" : "hidden"} md:block`}>
@@ -146,7 +145,6 @@ details
               </div>
             </div>
           </div>
-        </div>
       </NavWrapper>
     </>
   );

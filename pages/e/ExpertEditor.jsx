@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import './index.css';
 
-export default function ExpertEditor({ markdown, onChange, language }) {
+export default function ExpertEditor({ code, onChange, language }) {
   const textRef = React.useRef();
 
   useEffect(() => {
   }, []);
   return (
       <CodeEditor
-        value={markdown}
+        value={code}
         ref={textRef}
         language={language}
         placeholder={`Please enter ${language} code.`}
