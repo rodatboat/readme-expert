@@ -1,3 +1,7 @@
 .editor-bg, .wmde-markdown, .w-tc-editor {
     @apply !bg-secondary;
 }
+
+.wmde-markdown .code-highlight {
+    @apply !bg-secondary-dark;
+}
