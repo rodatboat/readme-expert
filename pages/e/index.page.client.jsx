@@ -124,7 +124,7 @@ details
         preview={preview}
         downloadFile={downloadFile}
       >
-        <div className="flex-none mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%] max-w-screen">
+        <div className="flex-auto mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6 h-[90%] max-w-screen">
           <div className="flex flex-col md:flex-row md:gap-x-4 md:gap-y-0 md:h-full h-full">
             <div
               className={`relative flex-1 basis-1/2 rounded-xl overflow-y-scroll scrollbar-hide ${
